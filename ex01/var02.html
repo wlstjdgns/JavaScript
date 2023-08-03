@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            id: 1,
+            username: "ssar",
+            password: "1234"
+
+        };
+        console.log("id", user.id);
+        console.log("username", user.username);
+        console.log("password", user.password);
+        console.log(user);
+
+
+        let board = {
+            id: 1,
+            title: "제목1",
+            content: "내용1",
+            user: user
+        };
+
+        console.log(board);
+
+        let data = JSON.stringify(board);
+        console.log(data);
+
+        let data2 = JSON.parse(data);
+        console.log(data2);
+
+
+    </script>
+
+</body>
+
+</html>

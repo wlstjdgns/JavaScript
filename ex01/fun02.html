@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>숨기기 이벤트</h1>
+    <hr>
+    <button onclick="hide1()">display로 숨기기</button>
+    <button onclick="hide2()">visible로 숨기기</button>
+    <div class="box">
+        <div id="b1" class="box">내부박스1</div>
+        <div id="b2" class="box">내부박스2</div>
+    </div>
+
+
+
+    <script>
+        function hide1() {
+            let e1 = document.querySelector("#b1"); //사라지면서 전체 창 크기도 줄어든다.
+            e1.style.display = "none";
+        }
+
+        function hide2() {
+            let e2 = document.querySelector("#b2");
+            e2.style.visibility = "hidden"; // 사라지면서 자기가 있었던 공간이 줄어 들지 않는다.
+        }
+    </script>
+</body>
+
+</html>
