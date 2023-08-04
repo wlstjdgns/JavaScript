@@ -8,13 +8,12 @@
 </head>
 
 <body>
+    <h1>history 02</h1>
+    <button onclick="back()">뒤로가기</button>
     <script>
-        let arr = [1, 2, 3, 4];
-        console.log(arr);
-        console.log(arr[0]);
-        //1,2,3,4 로 타입을 벗겨내는 것
-        let arr2 = [...arr, 9]; //전개연산자...
-        console.log(arr2);
+        function back() {
+            history.back();
+        }
     </script>
 </body>
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-text {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div>box1</div>
+    <div>box2</div>
+    <div class="red-text">box3</div>
+    <div class="red-text">box4</div>
+    <div id="box5">box5</div>
+    <div>box6</div>
+    <hr>
+    <div id="err"></div>
+    <button onclick="tagChange()">태그찾기</button>
+    <button onclick="classChange()">클래스찾기</button>
+    <button onclick="idChange()">아이디찾기</button>
+    <button onclick="err()">에러</button>
+
+    <script>
+
+        function err() {
+            let errEl = document.querySelector("#err");
+            console.log(errEl);
+            errEl.innerHTML = "아이디 혹은 비밀번호를 잘 몬적누!";
+        }
+        function tagChange() {
+            let tagEl = document.querySelectorAll("div");
+            console.log(tagEl);
+            for (let i = 0; i < tagEl.length; i++) {
+                tagEl[i].textContent = "메롱";
+            }
+
+            tagEl[0].textContent = "내용변경";
+
+            tagEl[1].innerHTML = "<h1>내용변경<h1>";
+            tagEl[2].innerHTML = "내용변경";
+            tagEl[3].innerHTML = "내용변경";
+            tagEl[4].innerHTML = "내용변경";
+            tagEl[5].innerHTML = "내용변경";
+        }
+        function classChange() {
+            let classEl = document.querySelectorAll(".red-text");
+            console.log(classEl);
+            classEl[0].innerHTML = "내변2";
+            classEl[1].innerHTML = "내변2";
+        }
+        function idChange() {
+            let idEl = document.querySelector("#box5");
+            console.log(idEl);
+            idEl.innerHTML = "내변3";
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #innerBox {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>추가 및 삭제하기</h1>
+    <div class="box" id="outerBox">
+    </div>
+    <button onclick="addAppend()">댓글쓰기</button>
+
+    <script>
+        let n = 1;
+        function addAppend() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox" + n);
+
+            newEl.innerHTML = n + `댓글 내용입니다 <button onclick="addReply(${n})">답글 달기</button> <button onclick="removeBox(${n})">댓글삭제</button> <button onclick="hideVisible(${n})">댓글 숨김</button>
+            <form id="replyForm${n}">
+                <input type="text" id="replyInput${n}" placeholder="답글 내용을 입력하세요">
+            </form> <div>댓글 달리는 공간</div>` ;
+            let el = document.querySelector("#outerBox");
+            el.append(newEl);
+            n++;
+
+        }
+        function removeBox(n) {
+            let b1 = document.querySelector("#innerBox" + n);
+            b1.remove();
+        }
+        function hideVisible(n) {
+            let c1 = document.querySelector("#innerBox" + n);
+            c1.style.visibility = "hidden";
+        }
+
+
+
+        function addReply(commentNumber) {
+            let replyInput = document.getElementById(`replyInput${commentNumber}`).value;
+            if (replyInput.trim() === "") {
+                alert("댓글 내용을 입력하세요.");
+                return;
+            }
+
+            let newReplyEl = document.createElement("div");
+            newReplyEl.setAttribute("class", "reply");
+            newReplyEl.innerHTML = `-> ${replyInput}  <button onclick="removeReply(${commentNumber}, this)">답글 삭제</button>`;
+
+            let commentEl = document.getElementById(`innerBox${commentNumber}`);
+            commentEl.appendChild(newReplyEl);
+
+
+        }
+    </script>
+</body>
+
+</html>

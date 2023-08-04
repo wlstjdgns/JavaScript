@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <script>
+        function getTime() {
+            let timer = new Date();
+            let hour = timer.getHours();
+            let min = timer.getMinutes();
+            let sec = timer.getSeconds();
+            let now = hour + ':' + min + ':' + sec;
+            return now;
+        }
+
+        function renderTime() {
+            clockEl.innerHTML = '<h1>${getTime()}</h1>';
+
+        }
+        let clockEl = document.querySelector('#clock');
+        //setInterval(수행할함수, 반복시간); 1/1000초
+        setInterval(renderTime, 1000);
+    </script>
+</body>
+
+</html>

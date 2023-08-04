@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #innerBox1 {
+            display: none;
+        }
+
+        #innerBox2 {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>숨기기</h1>
+
+    <button onclick="addAppend()">append로 추가하기</button>
+    <button onclick="addPrepend()">prepend로 추가하기</button>
+    <button onclick="addBefore()">before로 추가하기</button>
+    <button onclick="addAfter()">after로 추가하기</button>
+    <button onclick="del()">remove로 삭제하기</button>
+
+    <div class="box" id="outerBox">
+
+
+    </div>
+    <button onclick="showByDisplay()">display로 나타내기</button>
+    <button onclick="showByVisible()">visible로 나타내기</button>
+    <button onclick="hideDisplay()">display로 숨기기</button>
+    <button onclick="hideVisible()">visible로 숨기기</button>
+
+
+    <script>
+
+
+
+        function addAppend() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox1");
+            newEl.innerHTML = "내부박스1";
+            let el = document.querySelector("#outerBox");
+            el.append(newEl);
+        }
+        function addPrepend() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox2");
+            newEl.innerHTML = "내부박스2";
+            let el = document.querySelector("#outerBox");
+            el.prepend(newEl);
+        }
+        function addBefore() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox3");
+            newEl.innerHTML = "내부박스3";
+            let el = document.querySelector("#outerBox");
+            el.before(newEl);
+        }
+        function addAfter() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox4");
+            newEl.innerHTML = "내부박스4";
+            let el = document.querySelector("#outerBox");
+            el.after(newEl);
+        }
+        function del() {
+            let el = document.querySelector("#innerBox1, #innerBox2,#innerBox3,#innerBox4");
+            el.remove();
+        }
+        function hideDisplay() {
+            let el = document.querySelector("#innerBox1");
+            el.style.display = "none";
+        }
+        function hideVisible() {
+            let el = document.querySelector("#innerBox2");
+            el.style.visibility = "hidden";
+        }
+        function showByDisplay() {
+            let el = document.querySelector("#innerBox1");
+            el.style.display = "block";
+        }
+        function showByVisible() {
+            let el = document.querySelector("#innerBox2");
+            el.style.visibility = "visible";
+        }
+
+
+
+    </script>
+</body>
+
+</html>

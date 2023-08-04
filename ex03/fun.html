@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let add = function add(n1,n2) { 
+        //     return n1+n2;
+        // } 
+
+
+        // let add = function (n1, n2) { return n1 + n2; } //펑션에 이름이 없는걸 익명함수라고 한다. 굳이 어떤이름이 들어가든 결국 함수이름은 앞에꼐 되니까 생략한것
+        let add = (n1, n2) => n1 + n2; //람다 함수
+        let minus = (n1, n2) => console.log(n1 - n2);
+        let result = add(1, 2);
+        alert(result); //자바스크립터 5버전
+    </script>
+</body>
+
+</html>

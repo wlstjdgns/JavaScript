@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>댓글과 대댓글</title>
+</head>
+
+<body>
+    <button onclick="addAppend()">댓글 작성</button>
+    <div id="outerBox"></div>
+
+    <script>
+        // 위에서 설명한 JavaScript 코드를 여기에 붙여넣습니다.
+        // ...
+        let n = 1;
+        function addAppend() {
+            let newEl = document.createElement("div");
+            newEl.setAttribute("class", "box");
+            newEl.setAttribute("id", "innerBox" + n);
+            newEl.innerHTML = n + `댓글 내용입니다  <button onclick="removeBox(${n})">댓글삭제</button> <button onclick="hideVisible(${n})">댓글 숨김</button>
+    <form id="replyForm${n}" style="display:none;">
+        <input type="text" id="replyInput${n}" placeholder="답글 내용을 입력하세요">
+        <button type="button" onclick="addReply(${n})">답글 달기</button>
+    </form>`;
+            let el = document.querySelector("#outerBox");
+            el.append(newEl);
+            n++;
+        }
+        function addReply(commentNumber) {
+            let replyInput = document.getElementById(`replyInput${commentNumber}`).value;
+            if (replyInput.trim() === "") {
+                alert("댓글 내용을 입력하세요.");
+                return;
+            }
+
+            let newReplyEl = document.createElement("div");
+            newReplyEl.setAttribute("class", "reply");
+            newReplyEl.innerHTML = `-> ${replyInput}  <button onclick="removeReply(${commentNumber}, this)">답글 삭제</button>`;
+
+            let commentEl = document.getElementById(`innerBox${commentNumber}`);
+            commentEl.appendChild(newReplyEl);
+
+            // 답글을 추가한 후, 답글 입력 필드를 비웁니다.
+            document.getElementById(`replyInput${commentNumber}`).value = "";
+        }
+        function removeReply(commentNumber, replyElement) {
+            let commentEl = document.getElementById(`innerBox${commentNumber}`);
+            commentEl.removeChild(replyElement);
+        }
+    </script>
+</body>
+
+</html>

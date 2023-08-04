@@ -9,16 +9,12 @@
 
 <body>
     <button onclick="fun1()">클릭</button>
-
     <script>
-        function fun1() { //매개변수에 let 이런 타입 안적어도 된다.(왜냐 어차피 타입이 하나뿐이니까) 밖에도 타입 안적어도 되고.
-            alert('fun1 실행됨');
+        function fun1() { alert('open 함수 실행됨'); }
+        function add(n1) { //매개변수에 let 이런 타입 안적어도 된다.(왜냐 어차피 타입이 하나뿐이니까) 밖에도 타입 안적어도 되고.
+            alert('add 실행됨' + n1);
         }
         add(56);
-
-
-
-
     </script>
 </body>
 
